@@ -1,0 +1,90 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../svgs.html">
+
+<dom-module id="paper-input-examples">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      button {
+        margin-top: 10px;
+      }
+      
+    </style>
+
+    <div>
+      <h3>Basic input with validation</h3>
+      <paper-input auto-validate pattern="[a-zA-Z]*" error-message="Invalid input!" value="{{userInput}}" label="Name" focused="{{focused}}" always-float-label="[[focused]]"></paper-input>
+    </div>
+    <div>
+      <h3>Validation on button click</h3>
+      <paper-input
+        on-focus="_onInputFocus"
+        on-blur="_onInputBlur" 
+        id="name" 
+        error-message="Invalid input!"
+        label="Trade Name"></paper-input>
+      <button type="button" on-click="onNameSubmit">Submit</button>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class PaperInputExamples extends Polymer.Element {
+      static get is() { return 'paper-input-examples'; }
+      static get properties() {
+        return {
+          userInput: {
+            type: String,
+            value: ''
+          }
+        };
+      }
+
+      _onInputFocus(e) {
+        e.target.alwaysFloatLabel = true;
+      }
+
+      _onInputBlur(e) {
+        e.target.alwaysFloatLabel = false;
+      }
+
+      _onUserSubmit() {
+        console.log(this.userInput);
+      }
+
+      validateNameInput() {
+        return false;
+      }
+
+      theAnswer() {
+        return 'lasix';
+      }
+      
+      /**
+       * Get input with id of 'name' and
+       * execute validate() function
+       **/
+      onNameSubmit() {
+        if (this.$.name.value.toLowerCase() !== this.theAnswer()) {
+          this.$.name.invalid = true;
+        } else {
+          this.$.name.invalid = false;
+        }
+        
+      }
+
+    }
+
+    window.customElements.define(PaperInputExamples.is, PaperInputExamples);
+  </script>
+</dom-module>

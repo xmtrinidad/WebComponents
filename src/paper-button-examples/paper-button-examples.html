@@ -1,0 +1,63 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<dom-module id="paper-button-examples">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      paper-button.indigo {
+        background-color: var(--paper-indigo-500);
+        color: white;
+        --paper-button-raised-keyboard-focus: {
+          background-color: var(--paper-pink-a200) !important;
+          color: white !important;
+        };
+      }
+
+      paper-button.indigo:hover {
+        background-color: var(--paper-indigo-400);
+      }
+
+      paper-button.green {
+        background-color: var(--paper-green-500);
+        color: white;
+      }
+      paper-button.green[active] {
+        background-color: var(--paper-red-500);
+      }
+      
+    </style>
+
+<div>
+  <paper-button raised class="indigo" on-click="_onUserSubmit">Submit</paper-button>
+  <paper-button toggles raised class="green">toggles</paper-button>
+</div>
+    
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class PaperButtonExamples extends Polymer.Element {
+      static get is() { return 'paper-button-examples'; }
+      static get properties() {
+        return {};
+      }
+
+      _onUserSubmit() {
+        console.log(this.userInput);
+      }
+
+      checkInput() {
+        return this.userInput === '123';
+      }
+    }
+
+    window.customElements.define(PaperButtonExamples.is, PaperButtonExamples);
+  </script>
+</dom-module>

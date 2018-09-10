@@ -1,0 +1,75 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+
+<!-- Custom Icons -->
+<link rel="import" href="../svgs.html">
+
+<dom-module id="iron-icon-examples">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .big {
+        --iron-icon-height: 60px;
+        --iron-icon-width: 60px;
+        /* --iron-icon-fill-color: indigo; */
+      }
+
+      .standard {
+        --iron-icon-height: 40px;
+        --iron-icon-width: 40px;
+      }
+      
+      .small {
+        --iron-icon-height: 20px;
+        --iron-icon-width: 20px;
+      }
+
+      .red {
+        --iron-icon-fill-color: red;
+      }
+
+      .indigo {
+        --iron-icon-fill-color: indigo;
+      }
+    </style>
+
+<div>
+  <div>
+    <h3>Standard Icons</h3>
+    <iron-icon icon="menu"></iron-icon>
+    <iron-icon icon="bookmark"></iron-icon>
+    <iron-icon icon="close"></iron-icon>
+  </div>
+  <div>
+    <h3>Standard Icons customized</h3>
+    <iron-icon class="big red" icon="menu"></iron-icon>
+    <iron-icon class="standard indigo" icon="bookmark"></iron-icon>
+    <iron-icon class="small" icon="close"></iron-icon>
+  </div>
+  <div>
+    <h3>Custom Icons</h3>
+    <iron-icon class="standard" icon="my-svg-icons:codepen"></iron-icon>
+  </div>
+</div>
+    
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class IronIconExamples extends Polymer.Element {
+      static get is() { return 'iron-icon-examples'; }
+      static get properties() {
+        return {};
+      }
+    }
+
+    window.customElements.define(IronIconExamples.is, IronIconExamples);
+  </script>
+</dom-module>

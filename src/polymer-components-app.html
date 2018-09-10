@@ -1,0 +1,47 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<!-- Components -->
+<link rel="import" href="paper-input-examples/paper-input-examples.html">
+<link rel="import" href="paper-button-examples/paper-button-examples.html">
+<link rel="import" href="iron-icon-examples/iron-icon-examples.html">
+
+<dom-module id="polymer-components-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <main>
+      <section>
+        <h2>Paper Input Examples</h2>
+        <paper-input-examples></paper-input-examples>
+      </section>
+      <section>
+        <h2>Paper Button Examples</h2>
+        <paper-button-examples></paper-button-examples>
+      </section>
+      <section>
+        <h2>Iron Icon Examples</h2>
+        <iron-icon-examples></iron-icon-examples>
+      </section>
+    </main>
+
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class PolymerComponentsApp extends Polymer.Element {
+      static get is() { return 'polymer-components-app'; }
+      static get properties() {
+        return {};
+      }
+    }
+
+    window.customElements.define(PolymerComponentsApp.is, PolymerComponentsApp);
+  </script>
+</dom-module>
